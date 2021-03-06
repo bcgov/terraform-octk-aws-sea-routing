@@ -30,7 +30,24 @@ variable "alb_dns" {
   description = "alb data"
 }
 
-variable "fortigate" {}
+variable "fortigate" {
+  type = object({
+    a = object({
+      name  = string
+      extip = string
+      host  = string
+      token = string
+      vdom  = string
+    })
+    b = object({
+      name  = string
+      extip = string
+      host  = string
+      token = string
+      vdom  = string
+    })
+  })
+}
 
 variable "start_port" {
   description = "Port value to start allocating from"
