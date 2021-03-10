@@ -8,7 +8,7 @@ terraform {
 }
 
 resource "fortios_firewall_address" "this" {
-  for_each = var.alb_fqdn
+  for_each = var.alb_config
 
   name                 = "${var.identifier}-${each.key}-alb"
   associated_interface = "tgw-vpn1"
@@ -24,7 +24,7 @@ resource "fortios_firewall_vip" "this" {
   type        = "fqdn"
   extintf     = "port1"
   extip       = var.extip
-  extport     = var.extport + index(keys(fortios_firewall_address.this), each.key)
+  extport     = var.alb_config[each.key].extport
   portforward = "enable"
   mapped_addr = each.value.name
   mappedport  = 443

@@ -1,14 +1,21 @@
 locals {
   project_config = jsondecode(var.project_config)
-  alb_dns = flatten([
+  project_albs = {
+    for account in local.project_config.accounts : account.environment => {
+      for alb in lookup(account, "alb", {}) : alb.name => {
+        extport = alb.firewall_port
+      }
+    }
+  }
+  temp_config = flatten([
     for env_key, env in var.alb_dns : [
       for alb_key, alb in env : {
         name  = "${env_key}-${alb_key}"
-        value = alb
+        value = merge(alb, local.project_albs[env_key][alb_key])
       }
     ]
   ])
-  alb_fqdn = { for alb in local.alb_dns : alb.name => alb.value }
+  alb_config = { for alb in local.temp_config : alb.name => alb.value }
 }
 
 provider "fortios" {
@@ -22,10 +29,9 @@ provider "fortios" {
 module "firewall_a" {
   source = "./modules/firewall"
 
-  alb_fqdn   = local.alb_fqdn
+  alb_config = local.alb_config
   identifier = local.project_config.identifier
   extip      = var.fortigate["a"].extip
-  extport    = var.start_port
 
   providers = {
     fortios = fortios.a
@@ -43,10 +49,9 @@ provider "fortios" {
 module "firewall_b" {
   source = "./modules/firewall"
 
-  alb_fqdn   = local.alb_fqdn
+  alb_config = local.alb_config
   identifier = local.project_config.identifier
   extip      = var.fortigate["b"].extip
-  extport    = var.start_port
 
   providers = {
     fortios = fortios.b

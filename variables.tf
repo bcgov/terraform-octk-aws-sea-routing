@@ -52,11 +52,6 @@ variable "fortigate" {
   })
 }
 
-variable "start_port" {
-  description = "Port value to start allocating from"
-  type        = number
-}
-
 variable "perimeter_alb" {
   description = "Public ALB names"
   type = object({
