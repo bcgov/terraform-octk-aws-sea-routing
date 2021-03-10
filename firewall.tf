@@ -1,7 +1,7 @@
 locals {
   project_config = jsondecode(var.project_config)
   alb_dns = flatten([
-    for env_key, env in jsondecode(var.alb_dns) : [
+    for env_key, env in var.alb_dns : [
       for alb_key, alb in env : {
         name  = "${env_key}-${alb_key}"
         value = alb

@@ -28,6 +28,9 @@ variable "project_config" {
 
 variable "alb_dns" {
   description = "alb data"
+  type = map(map(object({
+    dns_name = string
+  })))
 }
 
 variable "fortigate" {
