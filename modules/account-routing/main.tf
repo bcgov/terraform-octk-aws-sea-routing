@@ -1,19 +1,9 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = ">= 3.30.0"
-    }
-  }
-}
-
 data "aws_route53_zone" "parent_zone" {
   name = var.parent_domain
 }
 
-
-data "aws_lb" "public_alb" {
-  name = var.public_alb_name
+data "aws_lb" "public_lb" {
+  name = var.public_lb_name
 }
 
 resource "aws_route53_zone" "subdomain_zone" {
@@ -36,8 +26,8 @@ resource "aws_route53_record" "subdomain_wildcard_record" {
   type    = "A"
 
   alias {
-    name                   = data.aws_lb.public_alb.dns_name
-    zone_id                = data.aws_lb.public_alb.zone_id
+    name                   = data.aws_lb.public_lb.dns_name
+    zone_id                = data.aws_lb.public_lb.zone_id
     evaluate_target_health = true
   }
 }
@@ -68,12 +58,12 @@ resource "aws_route53_record" "cert_validation" {
   zone_id         = aws_route53_zone.subdomain_zone.zone_id
 }
 
-data "aws_lb_listener" "public_alb" {
-  load_balancer_arn = data.aws_lb.public_alb.arn
+data "aws_lb_listener" "public_lb" {
+  load_balancer_arn = data.aws_lb.public_lb.arn
   port              = 443
 }
 
 resource "aws_lb_listener_certificate" "cert" {
-  listener_arn    = data.aws_lb_listener.public_alb.arn
+  listener_arn    = data.aws_lb_listener.public_lb.arn
   certificate_arn = aws_acm_certificate.cert.arn
 }

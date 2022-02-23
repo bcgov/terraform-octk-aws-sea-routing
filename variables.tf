@@ -14,42 +14,8 @@ variable "parent_domain" {
   description = "The parent domain (zone) for the resources created by the module."
 }
 
-variable "routes" {
-  type = set(object({
-    external_alb_hostname = string
-    subdomain             = string
-    tags                  = map(string)
-  }))
-}
-
 variable "project_config" {
   description = "project.json config."
-}
-
-variable "alb_dns" {
-  description = "alb data"
-  type = map(map(object({
-    dns_name = string
-  })))
-}
-
-variable "fortigate" {
-  type = object({
-    a = object({
-      name  = string
-      extip = string
-      host  = string
-      token = string
-      vdom  = string
-    })
-    b = object({
-      name  = string
-      extip = string
-      host  = string
-      token = string
-      vdom  = string
-    })
-  })
 }
 
 variable "perimeter_alb" {
@@ -59,4 +25,3 @@ variable "perimeter_alb" {
     prod     = string
   })
 }
-
