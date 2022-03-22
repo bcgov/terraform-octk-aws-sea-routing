@@ -30,7 +30,7 @@ resource "aws_dynamodb_table_item" "alb_ip_forwarding" {
   item = <<ITEM
 {
   "id": {
-    "S": "${var.identifier}-${var.environment}-core"
+    "S": "${replace(var.subdomain, "*", "wildcard")}-${var.identifier}-${var.environment}"
   },
   "targetAlbDnsName": {
     "S": "${var.target_dns_name}"
@@ -54,7 +54,7 @@ resource "aws_dynamodb_table_item" "alb_ip_forwarding" {
           "hosts": {
             "L": [
               {
-                "S": "*.${var.identifier}-${var.environment}.lz1.nimbus.cloud.gov.bc.ca"
+                "S": "${var.subdomain}.${var.identifier}-${var.environment}.lz1.nimbus.cloud.gov.bc.ca"
               }
             ]
           },

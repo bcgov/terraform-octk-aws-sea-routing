@@ -3,6 +3,11 @@ variable "public_lb_name" {
   type        = string
 }
 
+variable "subdomain" {
+  description = "subdomain"
+  type        = string
+}
+
 variable "target_dns_name" {
   description = "Target DNS name"
   type        = string
