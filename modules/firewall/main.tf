@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    fortios = {
-      source  = "fortinetdev/fortios"
-      version = ">= 1.10.4"
-    }
-  }
-}
-
 resource "fortios_firewall_address" "this" {
   for_each = var.alb_config
 

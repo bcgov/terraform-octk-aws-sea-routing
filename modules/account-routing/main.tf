@@ -1,12 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = ">= 3.30.0"
-    }
-  }
-}
-
 data "aws_route53_zone" "parent_zone" {
   name = var.parent_domain
 }
