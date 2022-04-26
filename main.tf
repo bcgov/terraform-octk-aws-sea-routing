@@ -1,16 +1,3 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "3.30.0"
-    }
-    fortios = {
-      source  = "fortinetdev/fortios"
-      version = "1.10.4"
-    }
-  }
-}
-
 provider "aws" {
   region = "ca-central-1"
   alias  = "master"
