@@ -58,12 +58,17 @@ resource "aws_route53_record" "cert_validation" {
   zone_id         = aws_route53_zone.subdomain_zone.zone_id
 }
 
-data "aws_lb_listener" "public_lb" {
-  load_balancer_arn = data.aws_lb.public_lb.arn
+resource "aws_acm_certificate_validation" "cert_validation" {
+  certificate_arn         = aws_acm_certificate.cert.arn
+  validation_record_fqdns = [for record in aws_route53_record.cert_validation : record.fqdn]
+}
+
+data "aws_lb_listener" "public_alb" {
+  load_balancer_arn = data.aws_lb.public_alb.arn
   port              = 443
 }
 
 resource "aws_lb_listener_certificate" "cert" {
-  listener_arn    = data.aws_lb_listener.public_lb.arn
-  certificate_arn = aws_acm_certificate.cert.arn
+  listener_arn    = data.aws_lb_listener.public_alb.arn
+  certificate_arn = aws_acm_certificate_validation.cert_validation.certificate_arn
 }
