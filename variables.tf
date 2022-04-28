@@ -27,5 +27,20 @@ variable "perimeter_alb" {
 }
 
 variable "fortigate" {
-  type = map(any)
+  type = object({
+    a = object({
+      name  = string
+      extip = string
+      host  = string
+      token = string
+      vdom  = string
+    })
+    b = object({
+      name  = string
+      extip = string
+      host  = string
+      token = string
+      vdom  = string
+    })
+  })
 }
