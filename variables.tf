@@ -25,3 +25,7 @@ variable "perimeter_alb" {
     prod     = string
   })
 }
+
+variable "fortigate" {
+  type = map(any)
+}
