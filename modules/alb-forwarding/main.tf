@@ -54,7 +54,7 @@ resource "aws_dynamodb_table_item" "alb_ip_forwarding" {
           "hosts": {
             "L": [
               {
-                "S": "${var.subdomain}.${var.identifier}-${var.environment}.lz1.nimbus.cloud.gov.bc.ca"
+                "S": "${var.subdomain}.${var.identifier}-${var.environment}.${var.parent_domain}"
               }
             ]
           },
