@@ -35,6 +35,6 @@ variable "route_type" {
 
   validation {
     condition     = contains(["default", "custom"], var.route_type)
-    error_message = "route_type must be either 'default' or 'custom'"
+    error_message = "route_type must be either 'default' or 'custom'."
   }
 }
