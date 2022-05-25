@@ -27,3 +27,14 @@ variable "environment" {
   description = "The name of the environment."
   type        = string
 }
+
+variable "route_type" {
+  description = "The type of route to create."
+  type        = string
+  default     = "default"
+
+  validation {
+    condition     = contains(["default", "custom"], var.route_type)
+    error_message = "route_type must be either 'default' or 'custom'"
+  }
+}
