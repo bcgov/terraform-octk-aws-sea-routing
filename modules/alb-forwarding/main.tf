@@ -14,8 +14,8 @@ data "aws_lb_listener" "perimeter" {
 }
 
 resource "random_integer" "priority" {
-  min = var.route_type == "default" ? 25001 : 1
-  max = var.route_type != "default" ? 50000 : 25000
+  min = var.route_type != "default" ? 25001 : 1
+  max = var.route_type == "default" ? 50000 : 25000
 }
 
 data "aws_dynamodb_table" "tableName" {
