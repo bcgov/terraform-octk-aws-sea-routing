@@ -29,8 +29,10 @@ locals {
   public_lb_map = {
     dev     = var.perimeter_alb["dev_test"]
     test    = var.perimeter_alb["dev_test"]
+    lab     = var.perimeter_alb["dev_test"]
     sandbox = var.perimeter_alb["dev_test"]
     prod    = var.perimeter_alb["prod"]
+    tools   = var.perimeter_alb["prod"]
   }
 }
 
