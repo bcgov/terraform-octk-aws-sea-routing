@@ -18,6 +18,12 @@ variable "target_dns_name" {
   type        = string
 }
 
+variable "target_port" {
+  description = "Target destination port"
+  type        = number
+  default     = 443
+}
+
 variable "identifier" {
   description = "The identifier for the project set."
   type        = string

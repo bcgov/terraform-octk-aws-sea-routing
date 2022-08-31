@@ -35,6 +35,7 @@ locals {
     unclass = var.perimeter_alb["dev_test"]
     prod    = var.perimeter_alb["prod"]
     tools   = var.perimeter_alb["prod"]
+    rosa    = var.perimeter_alb["prod"]
   }
 }
 

@@ -36,7 +36,7 @@ resource "aws_dynamodb_table_item" "alb_ip_forwarding" {
     "S": "${var.target_dns_name}"
   },
   "targetGroupDestinationPort": {
-    "N": "443"
+    "N": "${var.target_port}"
   },
   "targetGroupProtocol": {
     "S": "HTTPS"
