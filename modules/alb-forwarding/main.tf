@@ -67,4 +67,17 @@ resource "aws_dynamodb_table_item" "alb_ip_forwarding" {
   }
 }
 ITEM
+
+  lifecycle {
+    replace_triggered_by = [
+      null_resource.alb_listenter,
+    ]
+  }
+}
+
+# This is used to trigger the dynamodb table item replacement so that the rule is updated by the lambda
+resource "null_resource" "alb_listenter" {
+  triggers = {
+    listener_arn = data.aws_lb_listener.perimeter.arn
+  }
 }
