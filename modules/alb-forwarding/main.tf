@@ -30,7 +30,7 @@ resource "aws_dynamodb_table_item" "alb_ip_forwarding" {
   item = <<ITEM
 {
   "id": {
-    "S": "${replace(var.subdomain, "*", "wildcard")}-${var.identifier}-${var.environment}"
+    "S": "${replace(replace(var.subdomain, "*", "wildcard"), ".", "-")}-${var.identifier}-${var.environment}"
   },
   "targetAlbDnsName": {
     "S": "${var.target_dns_name}"
