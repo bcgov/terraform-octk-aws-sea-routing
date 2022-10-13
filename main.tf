@@ -23,19 +23,34 @@ module "lz_info" {
 locals {
   core_accounts     = { for account in module.lz_info.core_accounts : account.name => account }
   perimeter_account = local.core_accounts[var.perimeter_account_name]
+
+  project_config = jsondecode(var.project_config)
+
+  public_lb_map = {
+    dev     = var.perimeter_alb["dev_test"]
+    test    = var.perimeter_alb["dev_test"]
+    lab     = var.perimeter_alb["dev_test"]
+    sandbox = var.perimeter_alb["dev_test"]
+    unclass = var.perimeter_alb["dev_test"]
+    prod    = var.perimeter_alb["prod"]
+    tools   = var.perimeter_alb["prod"]
+  }
 }
 
 module "account_route" {
+  for_each = { for account in local.project_config.accounts : "${local.project_config.identifier}-${account.environment}" => {
+    environmenmt   = account.environment
+    public_lb_name = local.public_lb_map[account.environment]
+    }
+    if account.environment != "sandbox"
+  }
 
-  //	for_each = var.subdomains
-  for_each = { for route in var.routes : route.subdomain => route }
-  source   = "./modules/account-routing"
+  source = "./modules/account-routing"
   providers = {
     aws = aws.perimeter
   }
 
-  parent_domain   = var.parent_domain
-  public_alb_name = each.value.external_alb_hostname
-  subdomain       = each.value.subdomain
-  tags            = each.value.tags
+  parent_domain  = var.parent_domain
+  public_lb_name = each.value.public_lb_name
+  subdomain      = "${local.project_config.identifier}-${each.value.environmenmt}"
 }
