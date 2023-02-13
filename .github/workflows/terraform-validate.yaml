@@ -1,0 +1,31 @@
+name: terraform validate
+on:
+  - pull_request
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: hashicorp/setup-terraform@v2
+
+    - name: terraform init
+      run: terraform init -input=false -backend=false
+
+    - name: terraform validate
+      run: terraform validate
+
+    - name: terraform init
+      run: terraform init -input=false -backend=false
+      working-directory: modules/account-routing
+
+    - name: terraform validate
+      run: terraform validate
+      working-directory: modules/account-routing
+
+    - name: terraform init
+      run: terraform init -input=false -backend=false
+      working-directory: modules/alb-forwarding
+
+    - name: terraform validate
+      run: terraform validate
+      working-directory: modules/alb-forwarding
