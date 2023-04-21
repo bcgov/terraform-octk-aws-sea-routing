@@ -32,8 +32,8 @@ locals {
     lab     = var.perimeter_alb["dev_test"]
     sandbox = var.perimeter_alb["dev_test"]
     unclass = var.perimeter_alb["dev_test"]
+    tools   = var.perimeter_alb["dev_test"]
     prod    = var.perimeter_alb["prod"]
-    tools   = var.perimeter_alb["prod"]
   }
 }
 
