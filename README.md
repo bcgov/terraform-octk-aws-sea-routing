@@ -21,7 +21,7 @@ This repo provides a starting point for users who want to create valid Terraform
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.57.0 |
 
 ## Providers
 
