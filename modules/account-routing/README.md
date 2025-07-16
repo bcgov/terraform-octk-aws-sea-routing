@@ -3,13 +3,13 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.57.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 4.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.57.0 |
 
 ## Modules
 
@@ -19,16 +19,16 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_acm_certificate.cert](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acm_certificate) | resource |
-| [aws_acm_certificate_validation.cert_validation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/acm_certificate_validation) | resource |
-| [aws_lb_listener_certificate.cert](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lb_listener_certificate) | resource |
-| [aws_route53_record.cert_validation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | resource |
-| [aws_route53_record.subdomain_ns_records](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | resource |
-| [aws_route53_record.subdomain_wildcard_record](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_record) | resource |
-| [aws_route53_zone.subdomain_zone](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/route53_zone) | resource |
-| [aws_lb.public_lb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/lb) | data source |
-| [aws_lb_listener.public_lb](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/lb_listener) | data source |
-| [aws_route53_zone.parent_zone](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/route53_zone) | data source |
+| [aws_acm_certificate.cert](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/acm_certificate) | resource |
+| [aws_acm_certificate_validation.cert_validation](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/acm_certificate_validation) | resource |
+| [aws_lb_listener_certificate.cert](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/lb_listener_certificate) | resource |
+| [aws_route53_record.cert_validation](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/route53_record) | resource |
+| [aws_route53_record.subdomain_ns_records](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/route53_record) | resource |
+| [aws_route53_record.subdomain_wildcard_record](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/route53_record) | resource |
+| [aws_route53_zone.subdomain_zone](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/route53_zone) | resource |
+| [aws_lb.public_lb](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/data-sources/lb) | data source |
+| [aws_lb_listener.public_lb](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/data-sources/lb_listener) | data source |
+| [aws_route53_zone.parent_zone](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/data-sources/route53_zone) | data source |
 
 ## Inputs
 
