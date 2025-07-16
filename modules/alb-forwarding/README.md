@@ -3,13 +3,13 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.57.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 4.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 5.57.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 4.0 |
 | <a name="provider_null"></a> [null](#provider\_null) | n/a |
 | <a name="provider_random"></a> [random](#provider\_random) | n/a |
 
@@ -21,13 +21,13 @@ No modules.
 
 | Name | Type |
 |------|------|
-| [aws_dynamodb_table_item.alb_ip_forwarding](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/resources/dynamodb_table_item) | resource |
+| [aws_dynamodb_table_item.alb_ip_forwarding](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table_item) | resource |
 | [null_resource.alb_listenter](https://registry.terraform.io/providers/hashicorp/null/latest/docs/resources/resource) | resource |
 | [random_integer.priority](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/integer) | resource |
-| [aws_dynamodb_table.tableName](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/data-sources/dynamodb_table) | data source |
-| [aws_lb.perimeter](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/data-sources/lb) | data source |
-| [aws_lb_listener.perimeter](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/data-sources/lb_listener) | data source |
-| [aws_vpc.perimeter](https://registry.terraform.io/providers/hashicorp/aws/5.57.0/docs/data-sources/vpc) | data source |
+| [aws_dynamodb_table.tableName](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/dynamodb_table) | data source |
+| [aws_lb.perimeter](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/lb) | data source |
+| [aws_lb_listener.perimeter](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/lb_listener) | data source |
+| [aws_vpc.perimeter](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/vpc) | data source |
 
 ## Inputs
 
