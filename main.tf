@@ -14,7 +14,7 @@ provider "aws" {
 }
 
 module "lz_info" {
-  source = "github.com/BCDevOps/terraform-aws-sea-organization-info"
+  source = "github.com/BCDevOps/terraform-aws-sea-organization-info//.?ref=v1.0"
   providers = {
     aws = aws.master
   }
