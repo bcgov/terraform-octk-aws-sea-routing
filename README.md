@@ -32,7 +32,7 @@ No providers.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_account_route"></a> [account\_route](#module\_account\_route) | ./modules/account-routing | n/a |
-| <a name="module_lz_info"></a> [lz\_info](#module\_lz\_info) | github.com/BCDevOps/terraform-aws-sea-organization-info | n/a |
+| <a name="module_lz_info"></a> [lz\_info](#module\_lz\_info) | github.com/BCDevOps/terraform-aws-sea-organization-info//. | v1.0 |
 
 ## Resources
 
